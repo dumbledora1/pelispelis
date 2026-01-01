@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Películas Favoritas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #0a0e27;
+            background-image:
+                radial-gradient(ellipse at top, rgba(20, 30, 60, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(139, 69, 19, 0.3) 0%, transparent 60%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #f5e6d3;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px);
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f4c542;
+            margin-bottom: 50px;
+            font-size: 64px;
+            font-weight: bold;
+            text-shadow:
+                0 0 20px rgba(244, 197, 66, 0.5),
+                0 0 40px rgba(244, 197, 66, 0.3),
+                3px 3px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .movie-list {
+            list-style: none;
+        }
+
+        .movie-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .movie-item {
+            background: linear-gradient(135deg, rgba(20, 25, 45, 0.95) 0%, rgba(40, 35, 25, 0.95) 100%);
+            padding: 30px 35px;
+            border-left: 4px solid #f4c542;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 197, 66, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .movie-link:hover .movie-item::before {
+            left: 100%;
+        }
+
+        .movie-link:hover .movie-item {
+            transform: translateX(10px);
+            border-left-width: 8px;
+            box-shadow:
+                0 8px 30px rgba(244, 197, 66, 0.2),
+                0 4px 20px rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .movie-title {
+            font-size: 28px;
+            color: #f4c542;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .movie-year {
+            color: #9ab3d5;
+            font-weight: normal;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .movie-description {
+            color: #d4c5b0;
+            line-height: 1.7;
+            font-size: 16px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #f4c542;
+            font-size: 14px;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(244, 197, 66, 0.5);
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Películas Favoritas</h1>
+
+        <ul class="movie-list">
+            <a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y la Piedra Filosofal</div>
+                    <div class="movie-year">2001</div>
+                    <div class="movie-description">
+                        Harry descubre que es un mago y comienza su educación en Hogwarts, donde se enfrenta a los misterios de la Piedra Filosofal.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=1bq0qff4iF8" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y la Cámara Secreta</div>
+                    <div class="movie-year">2002</div>
+                    <div class="movie-description">
+                        Harry regresa a Hogwarts para su segundo año y debe enfrentar los oscuros secretos de la Cámara Secreta.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=lAxgztbYDbs" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y el Prisionero de Azkaban</div>
+                    <div class="movie-year">2004</div>
+                    <div class="movie-description">
+                        Un peligroso prisionero escapa de Azkaban y Harry descubre verdades importantes sobre el pasado de sus padres.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=7KeYD13IO0E" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y el Cáliz de Fuego</div>
+                    <div class="movie-year">2005</div>
+                    <div class="movie-description">
+                        Harry es seleccionado para competir en el peligroso Torneo de los Tres Magos mientras Voldemort planea su regreso.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=y6ZW7KXaXYk" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y la Orden del Fénix</div>
+                    <div class="movie-year">2007</div>
+                    <div class="movie-description">
+                        Harry lidera un grupo secreto de estudiantes para prepararse contra el regreso de Voldemort.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=JefC51RXMls" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y el Misterio del Príncipe</div>
+                    <div class="movie-year">2009</div>
+                    <div class="movie-description">
+                        Dumbledore prepara a Harry para la batalla final revelándole secretos cruciales sobre el pasado de Voldemort.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=mObK5XD8udk" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y las Reliquias de la Muerte - Parte 1</div>
+                    <div class="movie-year">2010</div>
+                    <div class="movie-description">
+                        Harry, Ron y Hermione abandonan Hogwarts para buscar y destruir los Horrocruxes de Voldemort.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=5NYt1qirBWg" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Harry Potter y las Reliquias de la Muerte - Parte 2</div>
+                    <div class="movie-year">2011</div>
+                    <div class="movie-description">
+                        La batalla final entre Harry y Voldemort culmina en Hogwarts en un enfrentamiento épico.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=V75dMMIW2B4" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">El Señor de los Anillos: La Comunidad del Anillo</div>
+                    <div class="movie-year">2001</div>
+                    <div class="movie-description">
+                        Frodo Bolsón inicia su peligroso viaje para destruir el Anillo Único acompañado por la Comunidad del Anillo.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=LbfMDwc4azU" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">El Señor de los Anillos: Las Dos Torres</div>
+                    <div class="movie-year">2002</div>
+                    <div class="movie-description">
+                        La Comunidad se divide mientras Frodo continúa su misión y las fuerzas de Saruman amenazan la Tierra Media.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=r5X-hFf6Bwo" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">El Señor de los Anillos: El Retorno del Rey</div>
+                    <div class="movie-year">2003</div>
+                    <div class="movie-description">
+                        La épica conclusión donde Frodo completa su misión y Aragorn reclama su destino como rey de Gondor.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=qvsgGtivCgs" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Volver al Futuro</div>
+                    <div class="movie-year">1985</div>
+                    <div class="movie-description">
+                        Marty McFly viaja accidentalmente a 1955 y debe asegurarse de que sus padres se enamoren para garantizar su existencia.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=MdENmefJRpw" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Volver al Futuro II</div>
+                    <div class="movie-year">1989</div>
+                    <div class="movie-description">
+                        Marty y Doc viajan al futuro del 2015, pero deben regresar a 1955 para corregir la línea temporal alterada.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=L7z2RzvHHYc" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Volver al Futuro III</div>
+                    <div class="movie-year">1990</div>
+                    <div class="movie-description">
+                        Marty viaja al salvaje oeste de 1885 para rescatar a Doc Brown y enfrentar su última aventura temporal.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=vZ734NWnAHA" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio I - La Amenaza Fantasma</div>
+                    <div class="movie-year">1999</div>
+                    <div class="movie-description">
+                        Los Jedi descubren a Anakin Skywalker, un joven esclavo con un extraordinario potencial en la Fuerza.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=gYbW1F_c9eM" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio II - El Ataque de los Clones</div>
+                    <div class="movie-year">2002</div>
+                    <div class="movie-description">
+                        Anakin, ahora un joven Jedi, protege a Padmé mientras la República enfrenta una crisis separatista.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=5UnjrG_N8hU" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio III - La Venganza de los Sith</div>
+                    <div class="movie-year">2005</div>
+                    <div class="movie-description">
+                        La transformación de Anakin Skywalker en Darth Vader y el ascenso del Imperio Galáctico.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=vP_1T4ilm8M" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio IV - Una Nueva Esperanza</div>
+                    <div class="movie-year">1977</div>
+                    <div class="movie-description">
+                        Luke Skywalker se une a la Rebelión para rescatar a la Princesa Leia y destruir la Estrella de la Muerte.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=JNwNXF9Y6kY" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio V - El Imperio Contraataca</div>
+                    <div class="movie-year">1980</div>
+                    <div class="movie-description">
+                        Luke entrena con Yoda mientras el Imperio persigue a la Rebelión y revela una verdad impactante.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=7L8p7_SLzvU" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio VI - El Retorno del Jedi</div>
+                    <div class="movie-year">1983</div>
+                    <div class="movie-description">
+                        Luke enfrenta a Darth Vader y al Emperador mientras la Rebelión ataca la segunda Estrella de la Muerte.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=sGbxmsDFVnE" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio VII - El Despertar de la Fuerza</div>
+                    <div class="movie-year">2015</div>
+                    <div class="movie-description">
+                        Una nueva generación de héroes emerge para enfrentar a la Primera Orden y buscar al legendario Luke Skywalker.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio VIII - Los Últimos Jedi</div>
+                    <div class="movie-year">2017</div>
+                    <div class="movie-description">
+                        Rey busca convencer a Luke para que entrene a una nueva generación de Jedi mientras la Resistencia huye de la Primera Orden.
+                    </div>
+                </li>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=8Qn_spdM5Zg" target="_blank" class="movie-link">
+                <li class="movie-item">
+                    <div class="movie-title">Star Wars: Episodio IX - El Ascenso de Skywalker</div>
+                    <div class="movie-year">2019</div>
+                    <div class="movie-description">
+                        La conclusión de la saga Skywalker con el enfrentamiento final entre Rey y el resurgido Emperador Palpatine.
+                    </div>
+                </li>
+            </a>
+        </ul>
+
+        <div class="footer">
+            Las mejores películas de todos los tiempos
+        </div>
+    </div>
+</body>
+</html>
